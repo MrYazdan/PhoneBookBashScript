@@ -1,10 +1,12 @@
 #!/bin/bash
 
-
-
-main() {
+banner_func(){
   clear
   pyfiglet Phone Book
+}
+
+main() {
+  banner_func
   echo '========================= MAIN ========================='
   echo ''
   echo '  [1]. Add Phone Number '
