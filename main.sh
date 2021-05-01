@@ -5,6 +5,20 @@ banner_func(){
   pyfiglet Phone Book
 }
 
+exit_func() {
+  banner_func
+  echo -n "> Do You Want To Exit ? [y/N] : "
+  read -r cmd
+
+  if [ "$cmd" != "${cmd#[Yy]}" ]; then
+    main
+  else
+    banner_func
+    echo "Good Bye '~'"
+    exit
+  fi
+}
+
 main() {
   banner_func
   echo '========================= MAIN ========================='
