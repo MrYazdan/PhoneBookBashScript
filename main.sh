@@ -1,6 +1,6 @@
 #!/bin/bash
 
-banner_func(){
+banner_func() {
   clear
   pyfiglet Phone Book
 }
@@ -26,8 +26,30 @@ error_func() {
   echo '======================== ERROR! ========================'
   echo " Your Command Not Found !"
   echo -n " Press Enter For Back To Main ~ "
+  read -r
 
   main
+}
+
+add_func() {
+  banner_func
+  echo '=================== ADD PHONE NUMBER ==================='
+
+  echo -n ' Enter Contact Full Name : '
+  read -r full_name
+
+  echo -n ' Enter Contact Phone Number : '
+  read -r phone
+
+  echo "$full_name:$phone" | tee -a contact.txt.db
+
+  banner_func
+  echo '=================== SAVE COMPLETED ! ==================='
+  echo ''
+  echo " Your Contact Saved !"
+  echo -n " Press Enter For Back To Main ~ "
+  read -r
+
 }
 
 main() {
