@@ -7,6 +7,8 @@ banner_func(){
 
 exit_func() {
   banner_func
+  echo '========================= EXIT ========================='
+  echo ''
   echo -n "> Do You Want To Exit ? [y/N] : "
   read -r cmd
 
@@ -17,6 +19,15 @@ exit_func() {
     echo "Good Bye '~'"
     exit
   fi
+}
+
+error_func() {
+  banner_func
+  echo '======================== ERROR! ========================'
+  echo " Your Command Not Found !"
+  echo -n " Press Enter For Back To Main ~ "
+
+  main
 }
 
 main() {
