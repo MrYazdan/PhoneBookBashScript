@@ -1,29 +1,35 @@
 #!/bin/bash
 
+
+
 main() {
   clear
   pyfiglet Phone Book
+  echo '========================= MAIN ========================='
   echo ''
-  echo '================= MAIN ================='
+  echo '  [1]. Add Phone Number '
+  echo '  [2]. Show All Phone Number '
+  echo '  [3]. Search In Phone Number '
   echo ''
-  echo '  1. Add Phone Number '
-  echo '  2. Show All Phone Number '
-  echo '  0. Exit Program '
+  echo '  [0]. Exit Program '
   echo ''
-  echo -n ' >> '
+  echo -n ' >> Enter Number Of Main Items [0 ~ 3] : '
   read -r mode
 
   if [ "$mode" -eq 1 ]; then
-    pass
+    add_func
 
   elif [ "$mode" -eq 2 ]; then
-    pass
+    show_func
 
   elif [ "$mode" -eq 3 ]; then
-    pass
+    search_func
+
+  elif [ "$mode" -eq 0 ]; then
+    exit_func
 
   else
-    pass
+    error_func
 
   fi
 }
