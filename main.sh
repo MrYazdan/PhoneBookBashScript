@@ -41,7 +41,7 @@ add_func() {
   echo -n ' Enter Contact Phone Number : '
   read -r phone
 
-  echo "$full_name:$phone" | tee -a contact.txt.db
+  echo "$full_name: $phone" | tee -a contact.txt.db
 
   banner_func
   echo '=================== SAVE COMPLETED ! ==================='
@@ -64,6 +64,32 @@ show_func() {
     echo '======================= SHOW ALL ======================='
     echo ''
     shower_func
+  else
+    echo '======================== ERROR! ========================'
+    echo " Your Contact File Not Found !"
+    echo " Please Add New Phone Number And Go To Show All"
+    echo -n " Press Enter For Back To Main ~ "
+    read -r
+
+    main
+  fi
+}
+
+search_func() {
+  banner_func
+  if [[ -f "contact.txt.db" ]]; then
+    echo '======================== SEARCH ========================'
+    echo -n " Enter Your Data For Search In Phone Numbers : "
+    read -r searchkey
+    cat contact.txt.db | grep "$searchkey"
+
+    echo ''
+    echo ''
+    echo -n " Press Enter For Back To Main ~ "
+    read -r
+
+    main
+
   else
     echo '======================== ERROR! ========================'
     echo " Your Contact File Not Found !"
