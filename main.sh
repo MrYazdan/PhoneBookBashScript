@@ -52,6 +52,29 @@ add_func() {
 
 }
 
+format_show_func(){
+  banner_func
+  cat "contact.txt.db"
+}
+
+show_func() {
+  banner_func
+
+  if [[ -f "contact.txt.db" ]]; then
+    echo '======================= SHOW ALL ======================='
+    echo ''
+    shower_func
+  else
+    echo '======================== ERROR! ========================'
+    echo " Your Contact File Not Found !"
+    echo " Please Add New Phone Number And Go To Show All"
+    echo -n " Press Enter For Back To Main ~ "
+    read -r
+
+    main
+  fi
+}
+
 main() {
   banner_func
   echo '========================= MAIN ========================='
